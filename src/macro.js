@@ -44,17 +44,9 @@ function asFunction(referencePath, { file: { opts: fileOpts } }, babel) {
   );
 }
 function getReplacement({ string, fileOpts, args, babel }) {
-  // const variableDeclarationNode = babel.template(`var x = ${string}`, {
-  //   preserveComments: true,
-  //   placeholderPattern: false,
-  //   ...fileOpts.parserOpts,
-  //   sourceType: "module",
-  // })();
   let stringified =
     typeof string === "string" ? string : JSON.stringify(string);
-  console.log("string", stringified);
 
-  // return variableDeclarationNode.declarations[0].init;
   return babel.template(`JSON.parse('${stringified}')`, {
     preserveComments: true,
     placeholderPattern: false,
