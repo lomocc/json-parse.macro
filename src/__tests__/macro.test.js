@@ -14,12 +14,19 @@ pluginTester({
   },
   tests: {
     "no usage": `import JSONParse from '../macro'`,
-    "correct usage": `
+    "correct usage function": `
       import JSONParse from '../macro';
 
-      const json1 = JSONParse('{"name1": "raw.macro1"}');
-      const json2 = JSONParse({name2: "raw.macro2"});
+      const json1 = JSONParse('{"name1": "raw.macro"}');
+      const json2 = JSONParse({name2: "raw.macro"});
       const json3 = JSONParse({x: 1, y: 2, z: 3});
+      
+    `,
+    "correct usage tag": `
+      import JSONParse from '../macro';
+
+      const json4 = JSONParse\`{"name4": "raw.macro"}\`;
+      const json5 = JSONParse\`{"x": 1, "y": 2, "z": 3}\`;
     `,
   },
 });
