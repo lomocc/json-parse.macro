@@ -1,0 +1,45 @@
+{
+  "name": "json-parse.macro",
+  "description": "export = JSON.parse({...})",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "main": "dist/json-parse.macro.js",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "webpack",
+    "json-parse",
+    "string",
+    "babel",
+    "babel-macros",
+    "babel-plugin-macros"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lomocc/json-parse.macro.git"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "microbundle -i src/index.js -o dist",
+    "ci": "npm run test -- --ci && npm run build",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "babel-plugin-macros": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-plugin-tester": "^6.0.0",
+    "jest": "^24.1.0",
+    "microbundle": "^0.11.0",
+    "prettier": "^1.10.2"
+  },
+  "jest": {
+    "testRegex": "__tests__/.*.test.js$"
+  }
+}
